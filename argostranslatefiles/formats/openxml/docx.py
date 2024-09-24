@@ -18,7 +18,7 @@ class Docx(AbstractXml):
 
         for inzipinfo in inzip.infolist():
             with inzip.open(inzipinfo) as infile:
-                if inzipinfo.filename == "word/document.xml":
+                if inzipinfo.filename == "word/document.xml" or inzipinfo.filename == "word/header1.xml":
                     soup = BeautifulSoup(infile.read(), 'xml')
 
                     itag = self.itag_of_soup(soup)
